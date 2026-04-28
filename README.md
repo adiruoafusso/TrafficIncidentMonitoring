@@ -30,15 +30,20 @@ The entire system (Backend, Frontend, and Database) is containerized for immedia
 🏗 System Architecture
 The project follows a Microservices pattern designed for low latency and high portability.
 Service
-Tech Stack
-Description
+
+Tech Stack Description
+
 🧠 The Brain (Backend)
 FastAPI + ONNX Runtime	Handles video ingestion, runs AI inference, and manages the SQLite event log. Uses async execution to prevent blocking.
+
 👀 The Face (Frontend)
 FastHTML (Python)	A Server-Side Rendered (SSR) dashboard. Uses HTMX for real-time polling without heavy JavaScript bundles.
+
 🔬 The Lab (Research)
 Jupyter + PyTorch	Contains the model training, validation, and ONNX conversion pipelines.
+
 ⚡ Engineering Highlights
+
 1. AI Optimization (Quantization)
 Instead of deploying a raw PyTorch model (~800MB + dependencies), this project utilizes Post-Training Quantization (INT8).
 Model Format: ONNX (Open Neural Network Exchange).
@@ -47,8 +52,10 @@ Impact:
 Docker Image size reduced by 70%.
 Inference latency reduced by ~3x on CPU.
 Accuracy loss < 1.5%.
+
 2. Real-World Data Simulation
-The system does not rely on random numbers. The backend/static folder is hydrated with actual video samples extracted from the model's test set tensors (prod.pt), ensuring the demo reflects real model performance on unseen data.
+The system does not rely on random numbers. The backend/static folder is hydrated with actual video samples extracted from the model's test set, ensuring the demo reflects real model performance on unseen data.
+
 3. Shared Type Safety
 Both the Backend and Frontend utilize Pydantic models (models.py) to share data schemas. This ensures that the data contract (Events, Alerts, Logs) is strictly typed and validated on both ends of the network.
 
