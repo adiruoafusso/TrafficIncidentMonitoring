@@ -10,10 +10,10 @@
 
 The entire system (Backend, Frontend, and Database) is containerized for immediate deployment.
 
-1.  **Unzip the project:**
+1.  **Clone the project:**
     ```bash
-    unzip traffic_incident_monitoring.zip
-    cd traffic_incident_monitoring
+    git clone https://github.com/adiruoafusso/TrafficIncidentMonitoring.git
+    cd TrafficIncidentMonitoring
     ```
 
 2.  **Launch the System:**
