@@ -54,6 +54,7 @@ Both the Backend and Frontend utilize Pydantic models (models.py) to share data 
 
 📂 Project Structure
 
+```text
 traffic_incident_monitoring/
 ├── docker-compose.yml       # Orchestration
 ├── backend/                 # FastAPI Service
@@ -62,15 +63,20 @@ traffic_incident_monitoring/
 │   ├── main.py              # API Routes
 │   ├── database.py          # SQLite DAL
 │   ├── model_int8.onnx      # Quantized Model Artifact
-│   └── static/              # Video storage
+│   ├── pyproject.toml       # Backend Dependencies
+│   └── static/              # Assets storage
+│       ├── images/          # Processed snapshots
+│       └── videos/          # Recorded incidents
 ├── frontend/                # FastHTML Dashboard
 │   ├── models.py            # Shared Pydantic Schemas (Consumer)
 │   ├── main.py              # UI Components & Polling Logic
+│   ├── pyproject.toml       # Frontend Dependencies
 │   └── Dockerfile
 └── lab/                     # Data Science Work
     ├── experiment.ipynb     # Training/Validation Notebook
-    ├── convert_model.py     # ONNX Conversion Script
-    └── extract_stream.py    # Tensor -> Video converter
+    ├── README.md            # Lab Documentation
+    └── pyproject.toml       # Lab Environment Config
+```
 
 🧪 Running the Benchmarks
 To verify the speedup of the Quantized model vs the Original PyTorch model:
