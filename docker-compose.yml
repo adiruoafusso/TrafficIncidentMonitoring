@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # -------------------------------
+  # 1. THE BRAIN (Backend API)
+  # -------------------------------
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: traffic_brain
+    ports:
+      - "8000:8000"  # Host:Container (Exposed for Browser Videos)
+    volumes:
+      # OPTIONAL: Persist the SQLite DB so data survives restarts
+      - ./backend_data:/app/data
+      # OPTIONAL: Mount static folder so you can drop new MP4s without rebuilding
+      - ./backend/static:/app/static
+    restart: always
+
+  # -------------------------------
+  # 2. THE FACE (Frontend Dashboard)
+  # -------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: traffic_ui
+    ports:
+      - "5001:5001" # Host:Container (Access UI here)
+    environment:
+      # Internal Docker URL (How Frontend talks to Backend API)
+      - API_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: always

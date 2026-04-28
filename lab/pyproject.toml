@@ -1,0 +1,28 @@
+[project]
+name = "traffic-incident-probe"
+version = "0.1.0"
+description = "V-JEPA Video Probe for Traffic Incident Duration"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1.0",
+    "torchvision>=0.16.0",
+    "torchaudio>=2.1.0",
+    "lightning>=2.1.0",
+    "transformers>=4.35.0",
+    "torchmetrics>=1.0.0",
+    "timm>=0.9.0",
+    "decord>=0.6.0",
+    "einops>=0.7.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0"
+]
+
+[tool.uv]
+# These are only for running the notebook interface
+dev-dependencies = [
+    "jupyterlab",
+    "ipykernel",
+    "matplotlib",
+    "seaborn"
+]
