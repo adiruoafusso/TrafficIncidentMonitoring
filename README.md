@@ -73,14 +73,7 @@ TrafficIncidentMonitoring/
 │   ├── pyproject.toml       # Frontend Dependencies
 │   └── Dockerfile
 └── lab/                     # Data Science Work
-    ├── experiment.ipynb     # Training/Validation Notebook
+    ├── experiment.ipynb     # Data Analysis/Training/Testing/Quantization Notebook
     ├── README.md            # Lab Documentation
     └── pyproject.toml       # Lab Environment Config
 ```
-
-🧪 Running the Benchmarks
-To verify the speedup of the Quantized model vs the Original PyTorch model:
-1. Navigate to lab/.
-2. Run the benchmark script:
-    
-    python benchmark_models.py
