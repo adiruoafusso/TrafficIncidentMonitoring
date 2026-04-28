@@ -55,7 +55,7 @@ Both the Backend and Frontend utilize Pydantic models (models.py) to share data 
 📂 Project Structure
 
 ```text
-traffic_incident_monitoring/
+TrafficIncidentMonitoring/
 ├── docker-compose.yml       # Orchestration
 ├── backend/                 # FastAPI Service
 │   ├── models.py            # Shared Pydantic Schemas (Source of Truth)
